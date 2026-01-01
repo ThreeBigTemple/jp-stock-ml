@@ -13,21 +13,22 @@ dependencies = [
     "lxml>=4.9.0",             # XMLパース
     "yfinance>=0.2.0",         # 海外指数
     "pytrends>=4.9.0",         # Google Trends
-    
     # Database
     "sqlalchemy>=2.0.0",
-    
     # Technical Analysis
     "ta>=0.10.2",
-    
-    # Machine Learning (Phase 2以降)
+    # Machine Learning (Phase 3)
     "lightgbm>=4.0.0",
     "scikit-learn>=1.3.0",
     "optuna>=3.3.0",
-    
+    "scipy>=1.11.0",           # 統計計算（IC計算等）
     # Utilities
     "python-dotenv>=1.0.0",
     "tqdm>=4.66.0",
+    # Phase 4: 運用系
+    "pyyaml>=6.0",             # 設定ファイル
+    "joblib>=1.3.0",           # 並列処理・モデル保存
+    "pyarrow>=18.0.0",         # Parquetキャッシュ
 ]
 
 [project.optional-dependencies]
@@ -43,3 +44,8 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.8",
+]
